@@ -18,7 +18,7 @@ export default function SimpleMenu() {
     return (
         <div>
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                Open Menu
+                Main Menu
             </Button>
             <Menu
                 id="simple-menu"
@@ -29,7 +29,10 @@ export default function SimpleMenu() {
             >
                 <MenuItem onClick={handleClose}><Link to={"/checklist"}>Grocery Checklist</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to={"/comp"}>How to Make an Infographic</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link to={"/appBarz"}>Infographic Details</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to={"/snack"}>Snack Bar</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link to={"/subscribe"}>Newsletter Signup</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link to={"/form"}>User Info Form</Link></MenuItem>
             </Menu>
         </div>
     );
