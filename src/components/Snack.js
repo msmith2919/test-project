@@ -21,7 +21,7 @@ export default function SimpleSnackbar() {
 
     return (
         <div>
-            <Button style={{float: "left"}} onClick={handleClick}>Click for Snacks 🥨</Button>
+            <Button style={{float: "left"}} onClick={handleClick}>Click for Snacks <span role="img" aria-label="pretzel">🥨</span></Button>
             <Snackbar
                 anchorOrigin={{
                     vertical: 'bottom',
@@ -34,7 +34,7 @@ export default function SimpleSnackbar() {
                 action={
                     <React.Fragment>
                         <Button color="secondary" size="small" onClick={handleClose}>
-                            SNACK ACQUIRED 🍕
+                            SNACK ACQUIRED <span role="img" aria-label="pizza">🍕</span>
                         </Button>
                         <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
                             <CloseIcon fontSize="small" />
