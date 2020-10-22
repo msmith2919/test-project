@@ -36,8 +36,8 @@ export default class SimpleFormExample extends React.Component {
                     onChange={this.handleChange}
                     name="name"
                     value={formData.name}
-                    validators={['matchRegexp:^[A-Za-z]+$']}
-                    errorMessages={['Enter more than one character, no numbers']}
+                    validators={['matchRegexp:^[A-Za-z]{2,}$', 'required']}
+                    errorMessages={['Enter more than one character. No numbers']}
                 />
                 <br />
                 <TextValidator
@@ -45,8 +45,8 @@ export default class SimpleFormExample extends React.Component {
                     onChange={this.handleChange}
                     name="age"
                     value={formData.age}
-                    validators={['minNumber:10']}
-                    errorMessages={['Enter a number greater than 10']}
+                    validators={['minNumber:10', 'required']}
+                    errorMessages={['Enter a number. Must be greater than 10']}
                 />
                 <br />
                 <Button
