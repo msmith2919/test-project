@@ -57,9 +57,9 @@ function FirePage(){
     };
 
     const peopleEles = songs.map((sng, idx)=>
-        <div key={idx}>
-            <h1>{sng.name}</h1>
-            <h3>{sng.age}</h3>
+        <div key={idx} style={{color: 'white', backgroundColor: "#f44336", width: '500px', marginLeft: 'auto', marginRight: 'auto'}}>
+            <h1 style={{fontSize: sng.age + 'px'}}>{sng.name}</h1>
+            <h1 style={{fontSize: sng.age + 'px'}}>{sng.age}</h1>
             <button onClick={()=>handleDelete(sng.id)}>Delete Person</button>
         </div>
     );
