@@ -33,7 +33,7 @@ export default function SimpleMenu() {
                 <MenuItem onClick={handleClose}><Link to={"/snack"}>Snack Bar</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to={"/subscribe"}>Newsletter Signup</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to={"/form"}>User Info Form</Link></MenuItem>
-                <MenuItem onClick={handleClose}><Link to={"/FirePage"}>FirePage</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link to={"/CoolPerson"}>Cool Person</Link></MenuItem>
             </Menu>
         </div>
     );

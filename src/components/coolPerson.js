@@ -1,7 +1,7 @@
 import React from 'react';
 import fire from "../Fire";
 
-function FirePage(){
+function CoolPerson(){
 
     const [songs, setSongs]=React.useState([]);
     const [song , setSong]=React.useState({
@@ -74,4 +74,4 @@ function FirePage(){
     )
 }
 
-export default FirePage;
+export default CoolPerson;
