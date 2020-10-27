@@ -11,6 +11,7 @@ import Snack from "./components/Snack";
 import AppBarz from "./components/AppBarz";
 import Subscribe from "./components/Subscribe";
 import Form from "./components/Form";
+import FirePage from "./components/FirePage";
 import {
     BrowserRouter as Router,
     Switch,
@@ -25,6 +26,7 @@ function App() {
             <Router>
                 <Nav/>
                 <Switch>
+                    <Route path={"/FirePage"} component={FirePage}/>
                     <Route path={"/form"} component={Form}/>
                     <Route path={"/subscribe"} component={Subscribe}/>
                     <Route path={"/appBarz"} component={AppBarz}/>
