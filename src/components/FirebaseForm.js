@@ -28,7 +28,7 @@ function Form(){
     };
 
     const handleSubmit = ()=>{
-        db.collection("Cool People").add(names).then(()=>{
+        db.collection("people").add(names).then(()=>{
             setNames({
                 name:"",
                 age:"",
@@ -42,8 +42,6 @@ function Form(){
             alert("Must have more than one character");
         }
     };
-
-
 
 
 

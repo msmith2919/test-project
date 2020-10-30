@@ -20,7 +20,7 @@ function Home(){
     }, [currentSort]);*/
     return(
         <div>
-            {"Welcome to Mason's Material UI web app"}
+            {"Navigate to Cool Person for this week's assignment"}
         </div>
     );
 }

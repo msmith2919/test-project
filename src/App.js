@@ -12,6 +12,7 @@ import AppBarz from "./components/AppBarz";
 import Subscribe from "./components/Subscribe";
 import Form from "./components/Form";
 import CoolPerson from "./components/coolPerson";
+import FirebaseForm from "./components/FirebaseForm";
 import {
     BrowserRouter as Router,
     Switch,
@@ -26,6 +27,7 @@ function App() {
             <Router>
                 <Nav/>
                 <Switch>
+                    <Route path={"/FirebaseForm"} component={FirebaseForm}/>
                     <Route path={"/CoolPerson"} component={CoolPerson}/>
                     <Route path={"/form"} component={Form}/>
                     <Route path={"/subscribe"} component={Subscribe}/>

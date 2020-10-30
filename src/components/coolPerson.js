@@ -1,54 +1,115 @@
 import React from 'react';
+
 import fire from "../Fire";
+
+
 
 function CoolPerson(){
 
-    const [songs, setSongs]=React.useState([]);
-    const [song , setSong]=React.useState({
+
+
+    const [names, setNames]=React.useState([]);
+
+    const [name , setName]=React.useState({
+
         name: "",
         age:"",
+
+
+
     });
+
     const [submit, setSubmit]=React.useState(false);
+
     const db = fire.firestore();
 
+
+
     React.useEffect(()=>{
+
         let newItems = [];
 
+
+
         db.collection("people").get().then(function(snapshot){
+
             snapshot.forEach(function(doc){
+
                 const object = doc.data();
 
+
+
                 let item ={
+
                     name: object.name,
+
                     age:object.age,
+
                     id:doc.id
+
                 };
+
+
 
                 newItems.push(item);
 
+
+
             });
 
-            setSongs(newItems);
+
+
+            setNames(newItems);
+
         });
+
+
+
 
 
     },[db, submit]);
 
+
+
     const handleChange = prop => event =>{
-        setSong({
-            ...song, [prop]: event.target.value
+
+        setName({
+
+            ...name, [prop]: event.target.value
+
         });
+
     };
 
+
+
     const handleSubmit = ()=>{
-        db.collection("people").add(song).then(()=>{
-            setSong({
-                name:"",
-                age:"",
-            });
-            setSubmit(!submit);
-        })
+
+        if(name.name.length > 2) {
+
+            db.collection("people").add(name).then(() => {
+
+                setName({
+
+                    name: "",
+
+                    age: "",
+
+                });
+
+                setSubmit(!submit);
+
+            })
+
+        }else{
+
+            alert("Name must be more than one character");
+
+        }
+
     };
+
+
 
     const handleDelete = (id)=>{
         db.collection("people").doc(id).delete().then(()=>{
@@ -56,22 +117,39 @@ function CoolPerson(){
         })
     };
 
-    const peopleEles = songs.map((sng, idx)=>
+
+
+    const CoolPeopleEles = names.map((people, idx)=>
+
         <div key={idx} style={{color: 'white', backgroundColor: "#f44336", width: '500px', marginLeft: 'auto', marginRight: 'auto'}}>
-            <h1 style={{fontSize: sng.age + 'px'}}>{sng.name}</h1>
-            <h1 style={{fontSize: sng.age + 'px'}}>{sng.age}</h1>
-            <button onClick={()=>handleDelete(sng.id)}>Delete Person</button>
+
+            <h1 style={{fontSize: people.age + 'px'}}>{people.name}</h1>
+
+            <h1 style={{fontSize: people.age + 'px'}}>{people.age}</h1>
+
+            <button onClick={()=>handleDelete(people.id)}>Delete Person</button>
+
         </div>
+
     );
 
+
+
     return(
+
         <div>
-            <div>{peopleEles}</div>
-            <input placeholder={"Name..."} onChange={handleChange("name")}/>
-            <input placeholder={"Number..."} onChange={handleChange("age")}/>
+            <input type = "text" placeholder={"Name..."} onChange={handleChange("name")}/>
+
+            <input placeholder={"Age..."} onChange={handleChange("age")}/>
+
             <button onClick={handleSubmit}>Submit</button>
+
+            <div>{CoolPeopleEles}</div>
+
         </div>
+
     )
+
 }
 
 export default CoolPerson;
